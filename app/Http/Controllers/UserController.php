@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -29,7 +30,7 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        $user = Auth::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
